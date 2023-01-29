@@ -1,0 +1,64 @@
+.calendar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    height: max-content;
+}
+.header{
+    display:flex;
+    justify-content: space-around;
+}
+.calendar-square{
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    margin: 1px;
+    height: 150px;
+}
+.calendar-square-this{
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
+    margin: 1px;
+    height: 150px;
+    background-color: rgb(177, 255, 200);
+    
+}
+.date-filter{
+    display:flex;
+    justify-content: space-around;
+    
+}
+.day-number{
+    font-weight:bold; 
+}
+.image-calendar{
+    width: 30px;
+    height: 30px;
+}
+.image-calendar:hover{
+   cursor: pointer;
+}
+.calendar-data{
+    display:flex;
+    justify-content: space-around;
+}
+.event-title{
+    cursor: pointer;
+    text-align: center;
+    background-color: beige;
+}
+.datepicker::-webkit-datetime-edit {
+    display: none;
+}
+.datepicker::-webkit-calendar-picker-indicator {
+    
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+

@@ -7,6 +7,7 @@ function UpdateForm() {
     const dispatch = useDispatch();
     const activate = useSelector(state => state.activeUpdate.activate)
     const fetchId = useSelector(state => state.update.Id)
+    const [temp, setTemp] = useState("")
     const [update, setUpdate] = useState("")
     const [data, setData] = useState(JSON.parse(localStorage.getItem('evetsArr'))||[])
     const [idEvent, setIdEvent] = useState("")
@@ -23,7 +24,7 @@ function UpdateForm() {
           .then(res=>res.json())
           .then(res=>setTemp(res))
         */
-        
+        setTemp(eve)
         setUpdate(eve.updateTime)
         setIdEvent(eve.id)
         setTitle(eve.title)
@@ -62,7 +63,7 @@ function UpdateForm() {
         setDescription("")
         setDate("")
         setTime("")
-       
+        setTemp("")
         dispatch({type:"FALSE", switch:false})
     }
     //Function delete event

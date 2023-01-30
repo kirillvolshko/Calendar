@@ -49,7 +49,7 @@ function UpdateForm() {
             date,
             time,
         }
-        setTemp(createEvents)
+       
         setData(prev => prev.map(item => (item.id === idEvent ? createEvents : item)))
         dispatch({type:"push", payload:createEvents})
         /*
@@ -62,7 +62,7 @@ function UpdateForm() {
         setDescription("")
         setDate("")
         setTime("")
-        setTemp("")
+       
         dispatch({type:"FALSE", switch:false})
     }
     //Function delete event

@@ -58,7 +58,7 @@ function ModalForm() {
                   
                 </header>
                 <label className='description'>Titel*</label><br/>
-                <input type="text"  placeholder='Titel goes here' maxLength="30" className='input-titel' value={title} onChange={(e)=>setTitle(e.target.value)}/><br/>
+                <input type="text"  placeholder='Titel goes here' maxLength="10" className='input-titel' value={title} onChange={(e)=>setTitle(e.target.value)}/><br/>
                 <label className='description'>Description*</label><br/>
                 <textarea className='text-area' value={description} onChange={(e)=>setDescription(e.target.value)}/><br/>
                 <label className='description'  >Date</label><br/>

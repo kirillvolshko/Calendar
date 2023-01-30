@@ -10,23 +10,16 @@ function ModalForm() {
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
     const [time, setTime] = useState("")
-
-    console.log(activate)
-
-
     useEffect(()=>{
         localStorage.setItem('evetsArr', JSON.stringify(data))
       }, [data])
-
-    const handleClick = () => {
-        dispatch({type:"FALSE", switch:false})
-      }
-
+    
+    //Function fetch all data, and after set them
     function SendData(e) {
       e.preventDefault();
         const createEvents = {
             id:getUnixTime(new Date()),
-            updateTime:undefined,
+            updateTime:getUnixTime(new Date()),
             title,
             description, 
             date,
@@ -35,14 +28,23 @@ function ModalForm() {
         
         setData([...data, createEvents])
         dispatch({type:"push", payload:createEvents})
-        
+           /*
+          fetch(url,{
+            method:POST,
+            headers:...,
+            body: JSON.stringify(data)
+          })
+        */
         setTitle("")
         setDescription("")
         setDate("")
         setTime("")
         dispatch({type:"FALSE", switch:false})
     }
-    
+    //Function close modal form
+    const handleClick = () => {
+        dispatch({type:"FALSE", switch:false})
+      }
 
   return (
     <div className={activate ? "modal active":"modal"} >
@@ -56,14 +58,14 @@ function ModalForm() {
                   
                 </header>
                 <label className='description'>Titel*</label><br/>
-                <input type="text" required placeholder='Titel goes here' className='input-titel' value={title} onChange={(e)=>setTitle(e.target.value)}/><br/>
+                <input type="text"  placeholder='Titel goes here' maxLength="30" className='input-titel' value={title} onChange={(e)=>setTitle(e.target.value)}/><br/>
                 <label className='description'>Description*</label><br/>
                 <textarea className='text-area' value={description} onChange={(e)=>setDescription(e.target.value)}/><br/>
-                <label className='description' required >Date</label><br/>
-                <input type='date' className='input-date' value={date} onChange={(e)=>setDate(e.target.value)}/>
-                <input type='time' className='input-time' value={time} onChange={(e)=>setTime(e.target.value)}/><br/>
+                <label className='description'  >Date</label><br/>
+                <input type='date' className='input-date' lang="fr-CA" value={date} onChange={(e)=>setDate(e.target.value)}/>
+                <input type='time' className='input-time' lang="fr-CA" value={time} onChange={(e)=>setTime(e.target.value)}/><br/>
                 <footer className='fotter-content'>
-                  <button className ='save-button active' onClick={SendData}>Save</button><br/>
+                  <button className ='save-button-modal' disabled={!title && !date} onClick={SendData}>Save</button><br/>
                 </footer>
              </form>
              

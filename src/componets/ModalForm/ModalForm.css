@@ -20,6 +20,8 @@
     background-color: #ffffff;
 }
 .close-button{
+    position: fixed;
+    top:190px;
     border: none;
     background-color: white;
     width: 30px;
@@ -55,6 +57,7 @@
     border-bottom: 2px solid;
     resize: none;
     width: 150px;
+    height: 150px;
     margin-bottom: 20px;
 }
 .input-date::-webkit-calendar-picker-indicator {
@@ -70,24 +73,17 @@
     border-bottom: 2px solid;
 }
 .fotter-content{
+    
     margin-top: 60px;
 }
 
-.save-button{
+.save-button-modal{
+    margin-left: 80px;
     cursor: pointer;
     width: 60px;
     height: 30px;
     border: 1px solid black;
     background-color: rgb(112, 112, 112);
     border-radius: 2px;
-    
-}
-
-.save-button.active{
-    cursor: pointer;
-    width: 60px;
-    height: 30px;
-    border: 1px solid black;
-    background-color: rgb(213, 255, 151);
-    border-radius: 2px;
+    text-align: center;
 }

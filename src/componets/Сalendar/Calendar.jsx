@@ -9,36 +9,37 @@ function Calendar() {
   const [date, SetDate] = useState(JSON.parse(localStorage.getItem('filter'))||new Date())
   const [currentDate, SetCurrentDate] = useState(JSON.parse(localStorage.getItem('filter'))||new Date())
   const [events, SetEvants] = useState(JSON.parse(localStorage.getItem('evetsArr'))||[])
+
   useEffect(()=>{
       localStorage.setItem('filter', JSON.stringify(date))
       SetCurrentDate(JSON.parse(localStorage.getItem('filter')))
       
   }, [date])
-  console.log(currentDate)
+  //Fetch all data about month
   const totalDate = dateFns.eachDayOfInterval({ start: dateFns.startOfMonth(new Date(currentDate)), end: dateFns.endOfWeek(dateFns.lastDayOfMonth(new Date(currentDate)))})
 
   
-  
+  useEffect(()=>{
+    const fetchEvents = ()=>{
+    SetEvants(JSON.parse(localStorage.getItem('evetsArr'))||[])
+       /*
+          fetch(url)
+          .then(res=>res.json())
+          .then(res=>setEvents(res))
+        */
+    }
+    fetchEvents()
+  }, [fetchData])
+  //Fetch id, and send it
+   const sendId =(id) =>{
+      dispatch({type:"id", setID:events.filter((index)=>index.id===id)})  
+      dispatch({type:"TRUE", updateForm:true})
+    }
+   //Open modal form
   const handleClick = () => {
     dispatch({type:"TRUE", switch:true})
   }
 
-  useEffect(()=>{
-    const fetchEvents = ()=>{
-    SetEvants(JSON.parse(localStorage.getItem('evetsArr'))||[])
-    }
-    fetchEvents()
-  }, [fetchData])
-
-    const sendId =(id) =>{
-      dispatch({type:"id", setID:events.filter((index)=>index.id===id)})  
-      dispatch({type:"TRUE", updateForm:true})
-    }
-   
-  console.log(currentDate)
-  console.log(events)
-  console.log(totalDate)
-  console.log(date)
 
   return (
     <div className='content'>

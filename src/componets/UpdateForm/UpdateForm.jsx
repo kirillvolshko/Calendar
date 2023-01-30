@@ -90,7 +90,7 @@ function UpdateForm() {
                   <label className={(idEvent===update)?'description active':'description'}>Update at:{format(fromUnixTime(update), 'MM.dd.yyyy kk.mm')}</label><br/>
                 </header>
                 <label className='description'>Title*</label><br/>
-                <input type="text" required placeholder='Title goes here' className='input-titel'  value={title} onChange={(e)=>setTitle(e.target.value)}/><br/>
+                <input type="text" required placeholder='Title goes here' maxLength="10" className='input-titel'  value={title} onChange={(e)=>setTitle(e.target.value)}/><br/>
                 <label className='description'>Description*</label><br/>
                 <textarea className='text-area' value={description} onChange={(e)=>setDescription(e.target.value)}/><br/>
                 <footer className='fotter-content'>
